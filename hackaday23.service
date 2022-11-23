@@ -1,0 +1,11 @@
+[Unit]
+Description=gunicorn3 for hackaday-24-clock
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/hackaday/day24_clock
+ExecStart=/bin/gunicorn3 -e SCRIPT_NAME=/hackaday/clock --bind 0.0.0.0:8024 app:app
+
+[Install]
+WantedBy=multi-user.target
